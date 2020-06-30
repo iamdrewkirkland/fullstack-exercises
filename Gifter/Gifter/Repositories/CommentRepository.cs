@@ -47,7 +47,7 @@ namespace Gifter.Repositories
         public void Delete(int id)
         {
             var comment = GetById(id);
-            _context.Post.Remove(comment);
+            _context.Comment.Remove(comment);
             _context.SaveChanges();
         }
 
