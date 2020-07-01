@@ -25,10 +25,10 @@ namespace Gifter.Repositories
             return _context.Comment.FirstOrDefault(c => c.Id == id);
         }
 
-        public List<Comment> GetByUserProfileId(int id)
+        public List<Comment> GetByPostId(int id)
         {
-            return _context.Comment.Include(c => c.UserProfile)
-                            .Where(c => c.UserProfileId == id)
+            return _context.Comment.Include(c => c.Post)
+                            .Where(c => c.PostId == id)
                             .ToList();
         }
 
