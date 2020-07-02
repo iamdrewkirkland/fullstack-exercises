@@ -30,9 +30,9 @@ const PostForm = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container" fluid="sm">
       <Form className="form">
-        <Col md={6}>
+        <Col>
           <FormGroup>
             <Label for="form__title">Title</Label>
             <Input
@@ -44,7 +44,7 @@ const PostForm = (props) => {
             />
           </FormGroup>
         </Col>
-        <Col md={6}>
+        <Col>
           <FormGroup>
             <Label for="form__url">URL</Label>
             <Input
@@ -56,7 +56,7 @@ const PostForm = (props) => {
             />
           </FormGroup>
         </Col>
-        <Col md={6}>
+        <Col>
           <FormGroup>
             <Label for="form__caption">Caption</Label>
             <Input
