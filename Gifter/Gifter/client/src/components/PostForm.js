@@ -9,9 +9,11 @@ import {
   FormText,
 } from "reactstrap";
 import { PostContext } from "../providers/PostProvider";
+import { useHistory } from "react-router-dom";
 
 const PostForm = (props) => {
   const { addPost } = useContext(PostContext);
+  const history = useHistory();
 
   const title = useRef();
   const caption = useRef();
@@ -26,7 +28,9 @@ const PostForm = (props) => {
       DateCreated: new Date(),
       UserProfileId: 1,
     };
-    addPost(newPost);
+    addPost(newPost).then((p) => {
+      history.push("/");
+    });
   };
 
   return (
