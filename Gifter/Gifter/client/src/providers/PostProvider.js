@@ -6,22 +6,39 @@ export const PostProvider = (props) => {
   const [posts, setPosts] = useState([]);
 
   const getAllPosts = () => {
-    return fetch("/api/post")
+    return getToken().then((token)=>
+    fetch("/api/post", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then((res) => res.json())
-      .then(setPosts);
+      .then(setPosts));
   };
 
   const addPost = (post) => {
-    return fetch("/api/post", {
+    return getToken().then((token) => fetch("/api/post", {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(post),
-    });
+    }).then(resp => {
+      if (resp.ok) {
+        return resp.json();
+      }
+      throw new Error("Unauthorized");
+    }));
   };
   const getPost = (id) => {
-    return fetch(`/api/post/${id}`).then((res) => res.json());
+    return getToken().then((token) => fetch(`/api/post/${id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then((res) => res.json()));
 };
 
   return (
