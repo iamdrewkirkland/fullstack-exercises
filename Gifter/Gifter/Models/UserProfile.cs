@@ -16,6 +16,8 @@ namespace Gifter.Models
 
         public string ImageUrl { get; set; }
 
+        public string FirebaseUserId { get; set; }
+
         [Required]
         public DateTime DateCreated { get; set; }
 

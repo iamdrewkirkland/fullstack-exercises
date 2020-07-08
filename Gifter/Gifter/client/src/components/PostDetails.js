@@ -17,6 +17,8 @@ const PostDetails = () => {
     return null;
   }
 
+  console.log(post);
+  
   return (
     <div className="container">
       <div className="row justify-content-center">
