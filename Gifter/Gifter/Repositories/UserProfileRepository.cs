@@ -24,6 +24,10 @@ namespace Gifter.Repositories
         {
             return _context.UserProfile.FirstOrDefault(u => u.Id == id);
         }
+        public UserProfile GetByFirebaseId(string uuid)
+        {
+            return _context.UserProfile.FirstOrDefault(u => u.FirebaseUserId == uuid);
+        }
 
         public void Add(UserProfile userProfile)
         {
