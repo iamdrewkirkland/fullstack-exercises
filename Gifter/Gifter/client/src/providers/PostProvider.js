@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserProfileContext } from "./UserProfileProvider";
 
 export const PostContext = React.createContext();
 
 export const PostProvider = (props) => {
   const [posts, setPosts] = useState([]);
+  
+  const { getToken } = useContext(UserProfileContext);
+  
 
   const getAllPosts = () => {
     return getToken().then((token)=>
