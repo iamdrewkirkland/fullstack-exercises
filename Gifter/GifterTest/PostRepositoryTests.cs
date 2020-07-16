@@ -25,6 +25,16 @@ namespace Gifter.Tests
             Assert.Equal("The Dude", results[1].Title);
             Assert.Equal("The Jesus", results[2].Title);
         }
+        [Fact]
+        public void Post_By_User_Without_Matching_Id()
+        {
+            var repo = new PostRepository(_context);
+            var results = repo.GetByUserProfileId(5);
+
+            Assert.Empty(results);
+           
+        }
+
 
         [Fact]
         public void Search_Should_Match_A_Posts_Title()
@@ -43,7 +53,7 @@ namespace Gifter.Tests
             var repo = new PostRepository(_context);
             var results = repo.Search("it is no dream", false);
 
-            Assert.Equal(1, results.Count);
+            Assert.Single(results);
             Assert.Equal("If you will it, Dude, it is no dream", results[0].Caption);
         }
 
