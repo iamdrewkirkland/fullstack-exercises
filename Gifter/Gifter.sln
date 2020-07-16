@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gifter", "Gifter\Gifter.csproj", "{09674A7D-802F-4BF1-9087-219DE257D649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GifterTest", "GifterTest\GifterTest.csproj", "{ABAE2625-C5D1-4071-8BC5-FDE08D3FA8E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gifter.Tests", "GifterTest\Gifter.Tests.csproj", "{ABAE2625-C5D1-4071-8BC5-FDE08D3FA8E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

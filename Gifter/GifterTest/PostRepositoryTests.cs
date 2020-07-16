@@ -14,6 +14,17 @@ namespace Gifter.Tests
             AddSampleData();
         }
 
+        [Fact]
+        public void Post_By_User_Sorted_Alphabetically()
+        {
+            var repo = new PostRepository(_context);
+            var results = repo.GetByUserProfileId(1);
+
+            Assert.Equal(3, results.Count);
+            Assert.Equal("Bowling Ball", results[0].Title);
+            Assert.Equal("The Dude", results[1].Title);
+            Assert.Equal("The Jesus", results[2].Title);
+        }
 
         [Fact]
         public void Search_Should_Match_A_Posts_Title()
@@ -123,6 +134,22 @@ namespace Gifter.Tests
                 UserProfile = user3,
                 DateCreated = DateTime.Now - TimeSpan.FromDays(12),
             };
+            var post4 = new Post()
+            {
+                Caption = "Nobody fucks with him",
+                Title = "The Jesus",
+                ImageUrl = "http://foo.gif",
+                UserProfile = user1,
+                DateCreated = DateTime.Now - TimeSpan.FromDays(10)
+            };
+            var post5 = new Post()
+            {
+                Caption = "Obviously you're not a golfer",
+                Title = "Bowling Ball",
+                ImageUrl = "http://foo.gif",
+                UserProfile = user1,
+                DateCreated = DateTime.Now - TimeSpan.FromDays(10)
+            };
 
             var comment1 = new Comment()
             {
@@ -141,6 +168,8 @@ namespace Gifter.Tests
             _context.Add(post1);
             _context.Add(post2);
             _context.Add(post3);
+            _context.Add(post4);
+            _context.Add(post5);
             _context.Add(comment1);
             _context.Add(comment2);
             _context.SaveChanges();
